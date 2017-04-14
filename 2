@@ -1,0 +1,16 @@
+#!/bin/python
+
+a = 1
+b = 2
+ab = 0
+
+summe = 2
+while True:
+    ab = a + b
+    a = b
+    b = ab
+    if ab > 4000000:
+        break
+    if ab % 2 == 0:
+        summe += ab
+print ("Die Summe ist ", summe)

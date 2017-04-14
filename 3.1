@@ -1,0 +1,19 @@
+#!/bin/python
+
+number = 600851475143
+
+def isPrime(num):
+    for cnt in range(2,num-1):
+        if num % cnt == 0:
+            return False
+        else :
+            return True
+
+for cnt in range(2, prime):
+    if isPrime(cnt):
+        if (number/cnt).is_integer():
+            print(cnt)
+            print(number/cnt)
+            prime = prime/cnt
+            if prime == 1:
+                break;

@@ -1,0 +1,17 @@
+#!/bin/python
+
+a = 1
+b = 1
+c = 1
+
+for i in range(100, 1001):
+    for j in range(i,1001):
+        for k in range(j, 1001):
+            if i < j < k and i + j + k == 1000 and i*i + j*j == k*k:
+                print(i, j, k)
+                print(i*j*k)
+                exit()
+    print(i)
+# 200 375 425
+# 31875000
+

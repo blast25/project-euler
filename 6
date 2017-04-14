@@ -1,0 +1,14 @@
+#!/bin/python
+
+sumsqr = 0
+sqrsum = 0
+dif = 0
+
+for cnt in range(1,101):
+    sumsqr += cnt*cnt
+    sqrsum += cnt
+
+sqrsum = sqrsum * sqrsum
+dif = sqrsum - sumsqr
+
+print (sqrsum, sumsqr, dif)

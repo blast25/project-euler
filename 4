@@ -1,0 +1,10 @@
+#!/bin/python
+
+biggest = 0
+
+for fak1 in range(2, 999):
+    for fak2 in range(2,999):
+        if str(fak1 * fak2) == str(fak1 * fak2)[::-1]:
+            if fak1 * fak2 > biggest:
+                print(fak1 * fak2)
+                biggest = fak1 * fak2

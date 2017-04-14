@@ -1,0 +1,19 @@
+#!/bin/python
+
+def isPrime(num):
+    for cnt in range(2,num-1):
+        if num % cnt == 0:
+            return False
+        else:
+            return True
+
+prime = 600851475143
+
+for cnt1 in range(1, prime):
+    for cnt2 in range(1, prime):
+        
+        if cnt1 * cnt2 == prime:
+            print (cnt1, cnt2)
+
+
+

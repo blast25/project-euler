@@ -1,0 +1,19 @@
+#!/bin/python
+
+#brutefoce
+
+number = 0
+
+while True:
+    number += 20
+    for cnt in range(11, 21):
+        if not((number/cnt).is_integer()):
+            print(cnt)
+            break
+        if cnt == 20:
+            print(number)
+            print(number)
+            print(number)
+            exit()
+
+# solution = 2327925600

@@ -1,0 +1,25 @@
+#!/bin/python
+
+import math
+
+def isPrime(num):
+    prime = True
+    for cnt in range(2, math.ceil(num/2)):
+        cur_prime = not (num % cnt) == 0
+        prime = prime and cur_prime
+        if not prime:
+            return False
+    return prime
+
+prime = 1
+number = 3
+while prime < 10001:
+    if isPrime(number):
+       prime += 1
+       print (prime, number)
+    number += 2
+number -= 2
+print (number)
+print (prime)
+
+# solution 104743

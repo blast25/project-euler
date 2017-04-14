@@ -1,0 +1,31 @@
+#!/bin/python
+
+import math
+import time
+
+def frange(x, y, jump):
+  while x < y:
+    yield x
+    x += jump
+
+def isPrime(num):
+    prime = True
+    for cnt in frange(2, math.sqrt(num), 1):
+        cur_prime = not (num % cnt) == 0
+        prime = prime and cur_prime
+        if not prime:
+            return False
+    return prime
+
+summe = 2
+i = 3
+time1 = time.time()
+while i < 2000000:
+    if isPrime(i):
+        summe += i
+    i+=2
+print (summe)
+time2 = time.time()
+print( time2 - time1)
+# math sqrt to unprecise, no solution found
+# Solution 142913828922
