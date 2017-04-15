@@ -82,7 +82,7 @@ int main() {
     p = 17;
     
     //diagonal nach unten unteres dreieck
-    for(i = 0; i < 17; matrix{
+    for(i = 0; i < 17; i++){
         for(j = 0; j < p; j++) {
             for(k = 0; k < 4; k++) {
                 buffa *= grid[i+j+k][j+k];
