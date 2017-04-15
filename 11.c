@@ -33,10 +33,8 @@ int main() {
             j = 0;
             i++;
         }
-        if (i > 19) {
-            break;
-        } 
     }
+    free(running);
     // check for bigger product 
     void bigger(char st[]) {
         if (buffa > biggest) {
@@ -48,77 +46,39 @@ int main() {
     //zeile
     for(i = 0; i < 20; i++) {
         for(j = 0; j < 17; j++) {
-            for(k = 0; k < 4; k++) { //buffa = grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3];
+            for(k = 0, buffa = 1; k < 4; k++) { //buffa = grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3];
                 buffa *= grid[i][j+k];
             }
             bigger("zeile"); 
-            buffa = 1;
-            }
+        }
     }
 
     //spalte 
     for(i = 0; i < 20; i++) {
         for(j = 0; j < 17; j++) {
-            for(k = 0; k < 4; k++) {
+            for(k = 0, buffa = 1; k < 4; k++) {
                 buffa *= grid[j+k][i];
             }
             bigger("spalte");
-            buffa = 1;
-            }
-    }
-
-    //diagonal nach unten oberes dreieck 
-    for(i = 0; i < 17; i++) {
-        for(j = 0; j < p; j++) {
-            for(k = 0; k < 4; k++) {
-                buffa *= grid[j+k][i+j+k];
-            }
-            bigger("dia");
-            buffa = 1;
         }
-        p = p - 1;
     }
-
-    p = 17;
-    
-    //diagonal nach unten unteres dreieck
-    for(i = 0; i < 17; i++){
-        for(j = 0; j < p; j++) {
-            for(k = 0; k < 4; k++) {
-                buffa *= grid[i+j+k][j+k];
+    //diagonal rechts unten 
+    for (i = 0; i < 17; i++) {
+        for (j = 0; j < 17; j++) {
+            for(k = 0, buffa = 1; k < 4; k++) {
+                buffa *= grid[i+k][j+k];
             }
-            bigger("dia2");
-            buffa = 1;
+            bigger("dia down");
         }
-        p = p - 1;
     }
-    
-    p = 17;
-
-    //diagonal nach oben oberes dreieck
-    for (i = 19; i > 3; i--) {
-        for (j = 0; j < p; j++) {
-            for (k = 0; k < 4; k++) {
-                buffa *= grid[i-j-k][j+k];
+    //diagonal rechts oben 
+    for (i = 3; i < 20; i++) {
+        for (j = 0; j < 17; j++) {
+            for(k = 0,buffa = 1; k <4; k++) {
+                buffa *= grid[i-k][j+k];
             }
-            bigger("dia3");
-            buffa = 1;
+            bigger("dia up");
         }
-        p = p - 1;
-    }
-
-    p = 17;
-
-    //diagonal nach oben unteres dreieck
-    for( i = 0; i < 17; i++) {
-        for(j = 0; j < p; j++) {
-            for(k = 0; k < 4; k++) {
-                buffa *= grid[19-j-k][i+j+k];
-            }
-            bigger("dia4");
-            buffa = 1;
-        }
-        p = p - 1;
     }
 
     printf("%ld" , biggest);

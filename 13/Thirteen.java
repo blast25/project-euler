@@ -15,17 +15,17 @@ public class Thirteen {
             numbers.add(new StringBuilder(num));
         }
         
-        for (StringBuilder num : numbers) {
-            System.out.println(num);
-        }
+        //for (StringBuilder num : numbers) {
+        //    System.out.println(num);
+        //}
 
         for (StringBuilder num : numbers) {
             num = num.reverse();
         }
         
-        for (StringBuilder num : numbers) {
-            System.out.println(num);
-        }
+        //for (StringBuilder num : numbers) {
+        //    System.out.println(num);
+        //}
         
 
 
