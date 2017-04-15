@@ -2,11 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef int bool;
-#define true 1
-#define false 0
+typedef int instance;
+#define row 1
+#define column 2
+#define dia_down 3
+#define dia_up 4
 
-void bigger(char st[]);
+void check();
+long product(int instance);
 
 int main() {
 
@@ -14,17 +17,13 @@ int main() {
     long grid[20][20];
     char *token;
     char *running;
-    int i = 0,
-        j = 0,
-        k = 0;
-    int p = 17;
+    int i = 0, j = 0, k = 0;
     long biggest = 0;
-    long buffa = 1;
+    long buffer = 1;
 
+    //string into number matrix 
     running = strdup(stri);
-    //string into number matrix
     while ((token = strsep(&running, " ")) != NULL) {
-        
         grid[i][j] = strtol(token, NULL, 10);
         
         if (j < 19) {
@@ -35,49 +34,45 @@ int main() {
         }
     }
     free(running);
-    // check for bigger product 
-    void bigger(char st[]) {
-        if (buffa > biggest) {
-            biggest = buffa;
-            printf("%s (%d,%d)\n",st, i, j);
+
+    void check() {
+        if(biggest < buffer)
+            biggest = buffer;
+    }
+
+    long product(instance inst) {
+        for(k = 0,buffer = 1; k < 4;k++) {
+            switch (inst) {
+                case row:
+                    buffer *= grid[i][j+k];
+                    break;
+                case column:
+                    buffer *= grid[j+k][i];
+                    break;
+                case dia_down:
+                    buffer *= grid[i+k][j+k];
+                    break;
+                case dia_up:
+                    buffer *= grid[i-k][j+k];
+                    break;
+            }
         }
     }
 
-    //zeile
     for(i = 0; i < 20; i++) {
         for(j = 0; j < 17; j++) {
-            for(k = 0, buffa = 1; k < 4; k++) { //buffa = grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3];
-                buffa *= grid[i][j+k];
+            if (i < 17) {
+               product(dia_down);
+               check();
             }
-            bigger("zeile"); 
-        }
-    }
-
-    //spalte 
-    for(i = 0; i < 20; i++) {
-        for(j = 0; j < 17; j++) {
-            for(k = 0, buffa = 1; k < 4; k++) {
-                buffa *= grid[j+k][i];
+            if (2 < i) {
+                product(dia_up);
+                check();
             }
-            bigger("spalte");
-        }
-    }
-    //diagonal rechts unten 
-    for (i = 0; i < 17; i++) {
-        for (j = 0; j < 17; j++) {
-            for(k = 0, buffa = 1; k < 4; k++) {
-                buffa *= grid[i+k][j+k];
-            }
-            bigger("dia down");
-        }
-    }
-    //diagonal rechts oben 
-    for (i = 3; i < 20; i++) {
-        for (j = 0; j < 17; j++) {
-            for(k = 0,buffa = 1; k <4; k++) {
-                buffa *= grid[i-k][j+k];
-            }
-            bigger("dia up");
+            product(row);
+            check();
+            product(column);
+            check();
         }
     }
 
