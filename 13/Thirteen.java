@@ -7,7 +7,6 @@ public class Thirteen {
     static List<StringBuilder> numbers = new ArrayList<StringBuilder>();
     static List<StringBuilder> overflow = new ArrayList<StringBuilder>();
     static StringBuilder solution = new StringBuilder();
-    static int test = 0; 
     static int overflowSum = 0;
 
     public static void main (String[] args) {
@@ -20,7 +19,7 @@ public class Thirteen {
         System.out.println("reverse: " + solution);
         System.out.println("solution: " + solution.reverse());
         System.out.println(solution.substring(0, 10));
-        //Alternative solution: Cheating with BigInteger class
+        //alternative solution: cheating with BigInteger class
 
 
     }
