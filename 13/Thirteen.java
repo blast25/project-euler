@@ -7,7 +7,6 @@ public class Thirteen {
     static List<StringBuilder> numbers = new ArrayList<StringBuilder>();
     static List<StringBuilder> overflow = new ArrayList<StringBuilder>();
     static StringBuilder solution = new StringBuilder();
-    static int overflowSum = 0;
 
     public static void main (String[] args) {
         
@@ -36,7 +35,7 @@ public class Thirteen {
     }
 
     static void calcOverflow() {
-        for (int i = 0; i < numbers.get(0).length(); i++) {
+        for (int i = 0, overflowSum = 0; i < numbers.get(0).length(); i++) {
             for (StringBuilder num : numbers) {
                 overflowSum += Character.getNumericValue((num.charAt(i)));
             }
