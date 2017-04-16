@@ -19,9 +19,8 @@ public class Thirteen {
         System.out.println("solution: " + solution.reverse());
         System.out.println(solution.substring(0, 10));
         //alternative solution: cheating with BigInteger class
-
-
     }
+
     static void parse(String s) { 
         for(String num : s.split(" ")) {
             numbers.add(new StringBuilder(num));
