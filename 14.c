@@ -6,7 +6,7 @@ int main () {
          end = 1000000,
          bterm = 0,
          terms,
-         copy,
+         copy;
      
     while(start < end) {
         
