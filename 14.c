@@ -7,7 +7,6 @@ int main () {
          bterm = 0,
          terms,
          copy,
-         result;
      
     while(start < end) {
         
@@ -17,8 +16,6 @@ int main () {
         while (copy != 1) {
             copy = copy % 2 == 0 ? copy / 2 : 3*copy + 1;
             terms++;
-            if (copy < 0)
-                printf("%lld", start);
         }
         if(bterm < terms) {
             bterm = terms;
