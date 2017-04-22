@@ -13,17 +13,17 @@ int main(int argc, char **argv) {
     int solution = 0;
     num[0] = 2;
 
-    while (i < iterations) { 
+    while (i < iterations) { //2*2*..
         overflow = 0;
 
-        for (j = (numsize - 1); 0 <= j; --j) { //2*2*....
+        for (j = (numsize - 1); 0 <= j; --j) { //2*2
             num[j] = num[j] + num[j];
             num[j] += overflow; 
             overflow = num[j] / 10;
             num[j] %= 10;
         }
 
-        if (overflow > 0) {
+        if (overflow > 0) { //move number
             numsize++;
             for (k = numsize - 1; 1 <= k; --k) {
                 num[k] = num[k-1];
