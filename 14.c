@@ -3,10 +3,10 @@
 int main () {
     
     long long start = 13,
-         end = 1000000,
-         bterm = 0,
-         terms,
-         copy;
+              end = 1000000,
+              bterm = 0,
+              terms,
+              copy;
      
     while(start < end) {
         
